@@ -15,7 +15,7 @@ This program is free software: you can redistribute it and/or modify
 import java.util.*;
 import java.text.*;
 
-String tmp, tmp1, tmp2,tmp3,tmp4;
+String tmp, tmp1, tmp2,tmp3,tmp4,tmp5;
 String [] tempo;
 void setup() {
     
@@ -47,6 +47,7 @@ void setup() {
     String URL3 = "http://www.xe.com/it/currencyconverter/convert/?Amount=1&From=EUR&To=GBP";
     String URL4 = "http://www.xe.com/it/currencyconverter/convert/?Amount=1&From=EUR&To=JPY";
     String URL5 = "https://it.finance.yahoo.com/q?s=GCJ17.CMX";
+    String URL6 = "https://www.forexinfo.it/+Petrolio-WTI+";
     
     
     p.setURL(URL1);
@@ -59,10 +60,14 @@ void setup() {
     tmp3 = p.connect("uccResultAmount");
     p.setURL(URL5);
     tmp4 = p.connect("yfs_l10_gcj17.cmx");
+    p.setURL(URL6);
+    tmp5 = p.connect("buyPrice");
+    
     tmp1 = tmp1.substring(0, 7);
     tmp2 = tmp2.substring(0, 8);  
     tmp3 = tmp3.substring(0, 7);
     tmp4 = tmp4.substring(0, 8);
+    //tmp5 = tmp5.substring(0,5);
     GregorianCalendar gc = new GregorianCalendar();
     dati = append( dati, format.format(gc.getTime())+"|"+tmp+"|"+tmp1+"|"+tmp2);   
     saveStrings("Data.txt", dati);
@@ -129,6 +134,7 @@ void draw() {
     
     fill(0);
     text("ORO : "+tmp4, 0.75*width/5, 3.6*height/5);
+    text("PETROLIO : "+tmp5, 0.75*width/5, 4.2*height/5);
     
     noLoop();
 }

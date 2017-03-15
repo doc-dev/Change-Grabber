@@ -37,14 +37,15 @@ public class DownloadPage {
         while ((line = br.readLine()) != null) {
             //println(line);
             if(line.contains(first)) {
-                int a=line.indexOf(first)+2+first.length(); //MAGIC NUMBER,DON'T ASK ME             
+                int a=line.indexOf(first)+2+first.length(); //MAGIC NUMBER,DON'T ASK ME
+                //println(line);
                 for(int i=a;i<a+10;i++){                    
                     s+=line.charAt(i);
                 }
                 return s;       
             } 
         }
-        }catch(Exception e){println("Errore gestione");}
+        }catch(Exception e){println("Errore gestione" + e);}
         return null;
     }       
 }
